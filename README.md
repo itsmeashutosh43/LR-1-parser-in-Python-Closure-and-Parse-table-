@@ -2,8 +2,7 @@
 A implementation of LR(1) Parser or CLR Parser in Python3.
 
 **input(edit in line number 268)**
->>  ```
-    '^::=S$',
+>>  ```'^::=S$',
     'S::=CC',
     'C::=cC',
     'C::=d'
@@ -18,6 +17,7 @@ A implementation of LR(1) Parser or CLR Parser in Python3.
 	'7+d': 'shift 5', '8+d': 'reduce C::=d', '9+d': 'reduce C::=cC', '9+c': 'reduce C::=cC', 
 	'10+C': 'shift 12', '10+c': 'shift 10', '10+d': 'shift 8', '11+$': 'reduce C::=cC', '12+d': 'reduce C::=cC'}
   ```
+  '
 	(Contents Of Parsing Table)
 	where an entry,
 	5+$: 'reduce C::=d' represents reduction in state 5 , under $ symbol from d to C.
