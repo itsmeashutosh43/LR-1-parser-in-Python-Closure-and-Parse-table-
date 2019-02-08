@@ -2,27 +2,27 @@
 A implementation of LR(1) Parser or CLR Parser in Python3.
 
 **input(edit in line number 268)**
->>'''
+>>  ```
     '^::=S$',
     'S::=CC',
     'C::=cC',
     'C::=d'
-    '''
+    ```
 
-*Output*>>
-'''
+**Output**>>
+```
 	{'0+S': 'shift 2', '0+C': 'shift 3', '0+c': 'shift 10', '0+d': 'shift 8',
 	 '1+d': 'reduce C::=d', '1+c': 'reduce C::=d', '2+$': 'reduce ^::=S', '3+C': 'shift 6', 
 	 '3+c': 'shift 7', '3+d': 'shift 5', '4+C': 'shift 12', '4+c': 'shift 10', '4+d': 'shift 8', 
 	'5+$': 'reduce C::=d', '6+$': 'reduce S::=CC', '7+C': 'shift 11', '7+c': 'shift 7', 
 	'7+d': 'shift 5', '8+d': 'reduce C::=d', '9+d': 'reduce C::=cC', '9+c': 'reduce C::=cC', 
 	'10+C': 'shift 12', '10+c': 'shift 10', '10+d': 'shift 8', '11+$': 'reduce C::=cC', '12+d': 'reduce C::=cC'}
-  '''
+  ```
 	(Contents Of Parsing Table)
 	where an entry,
 	5+$: 'reduce C::=d' represents reduction in state 5 , under $ symbol from d to C.
 
-'''
+```
 	State  0
 	[['^::=.S$'], ['S::=.CC$'], ['C::=.cCd'], ['C::=.cCc'], ['C::=.dd'], ['C::=.dc']]
 	*********************
@@ -62,5 +62,5 @@ A implementation of LR(1) Parser or CLR Parser in Python3.
 	State  12
 	[['C::=cC.d']]
 	*********************
-  '''
+  ```
 
