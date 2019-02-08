@@ -97,6 +97,19 @@ def followOf(item):
 		return '$'
 
 def findClosure(I):
+	'''
+	Input: Grammar I
+	Output : Closure of Grammar
+
+	Input: '^::=.S$''
+	Output : [['^::=.S$'], ['S::=.CC$'], ['C::=.cCd'], ['C::=.cCc'], ['C::=.dd'], ['C::=.dc']]
+
+	where last element is the follow element.
+	Example:
+	In ['^::=.S$'] , $ is the follow of '^::=.S'
+
+
+	'''
 	add=1
 	while (add!=0):
 		add=0
@@ -122,6 +135,9 @@ gram=(
     'C::=cC',
     'C::=d'
 )
+
+# You can update your Grammar here. Be sure you update it on first.py line no. 61 as well.
+
 entryOfGram=findTerminalsOf(gram)
 I=[findClosure([['^::=.S$']])]
 #findClosure(GOTO(I[0],'d'))
