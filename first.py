@@ -1,11 +1,10 @@
-def first_and_follow(grammar):
+def first(grammar):
     # first & follow sets, epsilon-productions
     
     first = {i: set() for i in grammar.nonterminals}
     first.update((i, {i}) for i in grammar.terminals)
-    follow = {i: set() for i in grammar.nonterminals}
-    epsilon = set()
-
+    epsilon=set()
+    
     while True:
         updated = False
         
@@ -18,18 +17,9 @@ def first_and_follow(grammar):
             else:
                 updated |= union(epsilon, {nt})
                 
-            # FOLLOW set w.r.t epsilon-productions
-            aux = follow[nt]
-            for symbol in reversed(expression):
-                if symbol in follow:
-                    updated |= union(follow[symbol], aux)
-                if symbol in epsilon:
-                    aux = aux.union(first[symbol])
-                else:
-                    aux = first[symbol]
-        
+            
         if not updated:
-            return first, follow, epsilon
+            return first
 
 
 def union(first, begins):
@@ -68,12 +58,10 @@ class Grammar:
         )
 
 
-first, follow, epsilon = first_and_follow(Grammar(
+first = first(Grammar(
     '^::=S$',
     'S::=CC',
     'C::=cC',
     'C::=d',
 )
 )
-
-
