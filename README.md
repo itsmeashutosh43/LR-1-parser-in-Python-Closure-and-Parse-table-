@@ -3,11 +3,12 @@ A implementation of LR(1) Parser or CLR Parser in Python3.
 
 **input(edit in line number 268)**
 
->> ```^::=S$',
+
+```^::=S$',
     'S::=CC',
     'C::=cC',
     'C::=d'
-    ```
+ ```
 
 **Output**>>
 ```
