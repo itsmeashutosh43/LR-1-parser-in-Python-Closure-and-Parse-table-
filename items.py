@@ -273,9 +273,13 @@ gram=(
 )
 
 # You can update your Grammar here. Be sure you update it on first.py line no. 61 as well.
+# Also add the augmented Grammar like in line 269
+# Adjust line 278 acc. to your need
+
+starting='^::=.S$'
 
 entryOfGram=findTerminalsOf(gram)
-I=[findClosure([['^::=.S$']])]
+I=[findClosure([[starting]])]
 #findClosure(GOTO(I[0],'d'))
 
 X=allGrammarSymbol(gram)
@@ -307,7 +311,7 @@ while new_item:
 
 	new_item=False
 
-ItemsAll.insert(0,findClosure([['^::=.S$']]))
+ItemsAll.insert(0,findClosure([[starting]]))
 i=0
 ACTION={}
 #print(ItemsAll)
